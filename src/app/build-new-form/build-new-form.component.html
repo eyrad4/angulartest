@@ -1,3 +1,53 @@
-<p>
-  build-new-form works!
-</p>
+<div class="row">
+    <div class="col-md-4"><h1>Build new form</h1></div>    
+  </div>
+
+<div class="row">
+
+    <div class="col-md-2">
+      <div class="panel panel-warning" 
+        dnd-sortable-container 
+        [sortableData]="sourceList" 
+        [dropZones]="['source-dropZone']"
+        >
+          <h2>From elements</h2>
+
+          <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item"
+                *ngFor="let element of formElements; let x = index"  
+                dnd-sortable [sortableIndex]="x" [dragEnabled]="true"
+                [dragData]="element">{{element.name}}</li>
+            </ul>
+          </div>
+      </div>
+    </div>
+      
+
+      <div class="col-md-8">
+        <div class="panel panel-info" dnd-sortable-container [sortableData]="newForm" [dropZones]="['source-dropZone']">
+            <div class="panel-heading">View form</div>
+            <div class="panel-body" dnd-droppable (onDropSuccess)="addTo($event)" [dropZones]="['source-dropZone']">
+                <ul class="list-group">
+                    <li *ngFor="let newlement of newForm; let x = index" class="list-group-item" 
+                    dnd-sortable [sortableIndex]="x" [dragEnabled]="true"
+                    [dragData]="element">
+                        {{newlement.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+      </div> 
+      <div class="col-md-2">        
+        <h2>Propertis</h2>
+      
+      </div>  
+
+  <div class="col-md-12">
+    <a href="" class="btn btn-primary">Back</a>  
+    <a href="" class="btn btn-primary">Save</a>       
+  </div>
+  
+</div>  
+

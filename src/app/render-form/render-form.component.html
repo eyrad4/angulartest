@@ -1,0 +1,39 @@
+<div [ngSwitch]="elementItem.name" class="pure-form">
+    
+  <fieldset class="pure-group"  *ngSwitchCase="'textbox'" >
+    <label for="">{{elementItem.label}}</label>
+    <input type="text" class="pure-input-1-2" placeholder="{{elementItem.placeholder}}" name="" value="" />
+  </fieldset>
+  
+  <fieldset class="pure-group"  *ngSwitchCase="'select'"  >
+    <label for="">{{elementItem.label}}</label>
+    <select [id]="elementItem.name" name="" class="pure-input-1-2">
+      <option *ngFor="let opt of elementItem.options" [value]="opt.value">{{opt.value}}</option>
+    </select>
+  </fieldset>
+
+  <fieldset class="pure-group"  *ngSwitchCase="'file'" >
+      <label for="">{{elementItem.label}}</label>
+      <input type="file" class="pure-input-1-2" placeholder="{{elementItem.placeholder}}" name="" value="" />
+  </fieldset>
+
+  <fieldset class="pure-group"  *ngSwitchCase="'textarea'" >
+      <label for="">{{elementItem.label}}</label>
+      <textarea name="" id="" cols="30" rows="10" placeholder="{{elementItem.placeholder}}"></textarea>      
+  </fieldset>
+
+  <fieldset class="pure-group"  *ngSwitchCase="'checkbox'" >
+      <label for="">{{elementItem.label}}</label>
+      <span *ngFor="let input of elementItem.inputs">
+          <input type="checkbox" name="" [value]="input.value"> {{input.name}}
+      </span>        
+  </fieldset>
+
+  <fieldset class="pure-group"  *ngSwitchCase="'radio'" >
+      <label for="">{{elementItem.label}}</label>
+      <span *ngFor="let input of elementItem.inputs">
+          <input type="radio" name="" [value]="input.value"> {{input.name}}
+      </span>        
+  </fieldset>
+
+</div> 

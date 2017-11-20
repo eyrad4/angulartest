@@ -15,8 +15,16 @@
         <div class="pure-u-1-2">
             <p>Form preview</p>
             <div class="container build-form-preview"  [sortablejs]="items">
-                <div *ngFor="let item of newElements">
+                <div *ngFor="let item of newElements; let i = index">
                         <app-render-form [elementItem]="item"></app-render-form>
+                        <div class="edit">
+                            <div class="buttons">
+                                <a (click)="editElement()">Edit</a> | <a (click)="deleteElement(i)">Delete</a>
+                            </div>
+                            <div class="edit-block">
+                    
+                            </div>
+                        </div>
                 </div>
                  
                

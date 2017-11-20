@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import {DndModule} from 'ng2-dnd';
+import { SortablejsModule } from 'angular-sortablejs';
+
 
 import { FormListsComponent } from './form-lists/form-lists.component';
-import { BuildNewFormComponent } from './build-new-form/build-new-form.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
+import { renderFormElementPipe } from './render-form-element.pipe';
+import { BuildNewForm2Component } from './build-new-form2/build-new-form2.component';
+import { RenderFormComponent } from './render-form/render-form.component';
+import { BuildFormComponent } from './build-form/build-form.component';
 
 
 
@@ -15,17 +19,25 @@ import { EditFormComponent } from './edit-form/edit-form.component';
 @NgModule({
   declarations: [
     AppComponent,
-    FormListsComponent,
-    BuildNewFormComponent,
-    EditFormComponent
+    FormListsComponent,   
+    EditFormComponent,
+    renderFormElementPipe,
+    BuildNewForm2Component,
+    RenderFormComponent,
+    BuildFormComponent 
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
-    DndModule.forRoot()    
+    AppRoutingModule,    
+    SortablejsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+
+ 
+ }
+ 

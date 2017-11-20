@@ -26,6 +26,27 @@ export class BuildNewForm2Component implements OnInit {
     this.newElements.push(this.find);
   }
 
+  //метод который будет удалять определенный элемент с формы
+  deleteElement(index){
+    console.log(index);
+    this.newElements.splice(index, 1);
+  }
+
+  //метод который будет редактировать данные элемента
+  editElement(){
+
+  }
+
+  //метод который будет сохранять изменения в элементе формы
+  saveElement(){
+
+  }
+
+  //метод который сохранит данные формы в нашу псевдо басу json serv
+  saveForm(){
+
+  }
+
   ngOnInit() {
     this.elements = this.service.elements;      
   }

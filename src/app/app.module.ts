@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { SortablejsModule } from 'angular-sortablejs';
 
@@ -12,6 +13,7 @@ import { EditFormComponent } from './edit-form/edit-form.component';
 import { renderFormElementPipe } from './render-form-element.pipe';
 import { RenderFormComponent } from './render-form/render-form.component';
 import { RenderEditElementFormComponent } from './render-edit-element-form/render-edit-element-form.component';
+import { FormsService } from './forms.service';
 
 
 
@@ -32,9 +34,10 @@ import { RenderEditElementFormComponent } from './render-edit-element-form/rende
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,    
-    SortablejsModule
+    SortablejsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [FormsService],
   bootstrap: [AppComponent]
 })
 

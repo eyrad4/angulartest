@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, ReactiveFormsModule, FormBuilder, FormArray } from '@angular/forms';
+import { Response } from '@angular/http';
 
 import { SortablejsOptions } from 'angular-sortablejs';
+import { FormsService } from '../forms.service';
 
 @Component({
   selector: 'app-build-form',
@@ -12,7 +14,7 @@ export class BuildFormComponent implements OnInit {
 
   invoiceForm: FormGroup;
 
-  constructor(private _formBuild: FormBuilder) {  }
+  constructor(private _formBuild: FormBuilder, private formsService: FormsService) {  }
   
   ngOnInit() {
     this.invoiceForm = this._formBuild.group({
@@ -58,6 +60,15 @@ export class BuildFormComponent implements OnInit {
 
   deleteSubEelement(mainElement, index){
     mainElement.controls.elementData.removeAt(index)
+  }
+
+  saveForm(){
+   this.formsService
+   .saveForm(this.invoiceForm)
+   .subscribe((response) => {
+    
+    console.log(response);
+   }); 
   }
 
 }

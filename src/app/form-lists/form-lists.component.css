@@ -1,0 +1,27 @@
+.main-form-builder{
+    padding:50px 30px;
+}
+.main-form-builder .forms-list{}
+.main-form-builder .forms-list{
+
+}
+.main-form-builder .forms-list .one-form{
+    margin-bottom:20px;
+    border-bottom:1px solid #eee;
+    padding:10px;
+}
+.main-form-builder .forms-list .one-form:nth-child(even){
+    background: #eee;
+}
+.main-form-builder .forms-list .one-form:nth-child(odd){
+    background: #fff;     
+} 
+.form-buttons{
+    text-align: right;
+    display: inline-block;
+    vertical-align: bottom;
+    opacity:0;
+}
+.main-form-builder .forms-list .one-form:hover .form-buttons{
+    opacity:1;
+}

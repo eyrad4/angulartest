@@ -63,12 +63,10 @@ export class BuildFormComponent implements OnInit {
   }
 
   saveForm(){
-   this.formsService
-   .saveForm(this.invoiceForm)
-   .subscribe((response) => {
-    
-    console.log(response);
-   }); 
+   this.formsService.saveForm(this.invoiceForm.value).subscribe((response: Response) => {      
+    const data = response.json();
+    console.log(data);   
+  });   
   }
 
 }

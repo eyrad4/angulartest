@@ -10,7 +10,7 @@ export class FormsService{
     }
 
     saveForm(form){
-        const data = form;
+        const data = form;        
         return this.http.post('http://localhost:3000/forms', data);
     }
 }

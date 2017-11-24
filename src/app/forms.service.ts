@@ -18,9 +18,9 @@ export class FormsService{
         return this.http.post('http://localhost:3000/forms', data);
     }
 
-    editSaveForm(form: any){
-        const data = form;    
-        return this.http.put(`http://localhost:3000/forms/${form.id}`, form);
+    editSaveForm(form, formid){
+        const data = form;        
+        return this.http.put(`http://localhost:3000/forms/${formid}`, form);
     }
 
     deleteForms(form: any){

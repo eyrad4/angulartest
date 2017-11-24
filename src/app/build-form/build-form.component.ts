@@ -16,6 +16,7 @@ export class BuildFormComponent implements OnInit {
 
   invoiceForm: FormGroup;
   editForm: boolean = false;
+  formid;
 
   constructor(private _formBuild: FormBuilder, private formsService: FormsService, private route: ActivatedRoute) {  }
   
@@ -27,15 +28,21 @@ export class BuildFormComponent implements OnInit {
       FormData: this._formBuild.array([])
     });
 
-    let formid = this.route.snapshot.params['id'];
-    if(formid){
+    this.formid = this.route.snapshot.params['id'];
+    if(this.formid){
       this.editForm = true;
-      let query = this.formsService.editForm(formid);     
+      let query = this.formsService.editForm(this.formid);     
       query.subscribe((response: Response) => {         
         const data = response.json();        
-        console.log(data); 
-        this.invoiceForm = this._formBuild.group(data);  
-      });  
+       // console.log(this._formBuild.array([data.FormData])); 
+        this.invoiceForm = this._formBuild.group({
+          formid: [''],
+          form_name: data.form_name,
+          form_description: data.form_description,
+          FormData: this.addRowsEdit(data.FormData)
+        });  
+      });
+      console.log(this.invoiceForm.value);
      }
 
   }
@@ -51,9 +58,28 @@ export class BuildFormComponent implements OnInit {
     return group;
   } 
 
+  
+
+  addRowsEdit(arr) {
+    return this._formBuild.array(arr.map(x => this._formBuild.group({
+      label: x.label,
+      type: x.type,
+      description: x.description,
+      required: x.required,
+      elementData: this._formBuild.array(x.elementData.map(y => this._formBuild.group({
+        sub_value: y.sub_value,
+        sub_name: y.sub_name,        
+      }        
+      )))
+    }
+      
+    )));
+  }
+
   addElement(elementName){
     const control: FormArray = this.invoiceForm.get(`FormData`) as FormArray;
     control.push(this.addRows(elementName));
+    //console.log(this.addRows(elementName))
   }
 
   deleteEelement(FormDataArray,index){
@@ -86,12 +112,13 @@ export class BuildFormComponent implements OnInit {
   });   
   }
 
-  editSaveForm(form){
-    this.formsService.editSaveForm(form)
+  editSaveForm(){
+    this.formsService
+    .editSaveForm(this.invoiceForm.value, this.formid)
     .subscribe((response: Response) => {      
       const data = response.json();
       console.log(data);   
-    });   ;
+    });
   }
 
 }

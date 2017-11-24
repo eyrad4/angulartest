@@ -17,15 +17,40 @@
     },
     {
       "formid": "",
-      "form_name": "new form 222",
+      "form_name": "new form 2224444555555555",
       "form_description": "descr 1234",
-      "FormData": {
-        "label": "text label",
-        "type": "textarea",
-        "description": "descr",
-        "required": true,
-        "elementData": []
-      },
+      "FormData": [
+        {
+          "label": "File",
+          "type": "file",
+          "description": "",
+          "required": "",
+          "elementData": []
+        },
+        {
+          "label": "Checkbox 123",
+          "type": "checkbox",
+          "description": "descr 123",
+          "required": "",
+          "elementData": [
+            {
+              "sub_value": "one 1",
+              "sub_name": "one 1"
+            },
+            {
+              "sub_value": "two 2",
+              "sub_name": "two 2"
+            }
+          ]
+        },
+        {
+          "label": "Input text",
+          "type": "textbox",
+          "description": "descr",
+          "required": "",
+          "elementData": []
+        }
+      ],
       "id": 5
     }
   ]

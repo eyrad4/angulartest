@@ -72,7 +72,7 @@
         
         <div *ngIf="editForm; then thenBlock; else elseBlock"></div>
         <ng-template #thenBlock>
-          <button (click)="editSaveForm(invoiceForm.value)" class="button-success pure-button" >Save edit form</button>  
+          <button (click)="editSaveForm()" class="button-success pure-button" >Save edit form</button>  
         </ng-template>   
         <ng-template #elseBlock>
           <button (click)="saveForm()" class="button-success pure-button" >Save form</button>  

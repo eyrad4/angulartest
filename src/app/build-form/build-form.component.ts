@@ -48,4 +48,16 @@ export class BuildFormComponent implements OnInit {
     
   }
 
+  addSubElement(subElement:any) {
+    let group = this._formBuild.group({
+      sub_value:[''],
+      sub_name: ['']      
+    })
+    subElement.push(group)
+  }
+
+  deleteSubEelement(mainElement, index){
+    mainElement.controls.elementData.removeAt(index)
+  }
+
 }

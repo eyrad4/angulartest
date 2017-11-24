@@ -12,30 +12,35 @@
     <select [id]="elementItem.name" name="" class="pure-input-1">
       <option *ngFor="let opt of elementItem.elementData" [value]="opt.sub_value">{{opt.sub_name}}</option>
     </select>
+    <small><i>{{elementItem.description}}</i></small>   
   </fieldset>
 
   <fieldset class="pure-group"  *ngSwitchCase="'file'" >
       <label for="">{{elementItem.label}}</label>
       <input type="file" class="pure-input-1" placeholder="{{elementItem.placeholder}}" name="" value="" />
+      <small><i>{{elementItem.description}}</i></small>   
   </fieldset>
 
   <fieldset class="pure-group"  *ngSwitchCase="'textarea'" >
       <label for="">{{elementItem.label}}</label>
-      <textarea class="pure-input-1" name="" id="" cols="30" rows="10" placeholder="{{elementItem.placeholder}}"></textarea>      
+      <textarea class="pure-input-1" name="" id="" cols="30" rows="10" placeholder="{{elementItem.placeholder}}"></textarea>  
+      <small><i>{{elementItem.description}}</i></small>       
   </fieldset>
 
   <fieldset class="pure-group"  *ngSwitchCase="'checkbox'" >
       <label for="">{{elementItem.label}}</label>
       <span *ngFor="let input of elementItem.elementData">
           <input type="checkbox" name="" [value]="input.sub_value"> {{input.sub_name}}
-      </span>        
+      </span>  
+      <small><i>{{elementItem.description}}</i></small>         
   </fieldset>
 
   <fieldset class="pure-group"  *ngSwitchCase="'radio'" >
       <label for="">{{elementItem.label}}</label>
       <span *ngFor="let input of elementItem.elementData">
           <input type="radio" name="" [value]="input.sub_value"> {{input.sub_name}}
-      </span>        
+      </span> 
+      <small><i>{{elementItem.description}}</i></small>          
   </fieldset>
 
 </div> 

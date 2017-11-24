@@ -49,8 +49,23 @@
                 <label for="required" class="pure-checkbox">
                   <input type="checkbox" formControlName="required" id=""> Required
                 </label>
+
+                <div *ngIf="mainElement.value.type == 'select' || mainElement.value.type == 'radio' || mainElement.value.type == 'checkbox'">  
+                    <button  class="button-addsubelement pure-button" (click)="addSubElement(mainElement.controls.elementData)">Add Sub Element</button>                  
+                    <div formArrayName="elementData">
+                        <div *ngFor="let subelement of mainElement.controls.elementData.controls; let j = index" [formGroupName]="j">
+                          <fieldset>
+                            <label>Value</label>
+                            <input formControlName="sub_value" class="pure-input-1-2">
+                            <label>Name</label>
+                            <input formControlName="sub_name" class="pure-input-1-2">
+                            <button  class="button-delete pure-button" (click)="deleteSubEelement(mainElement, j)">Remove</button>
+                          </fieldset>
+                        </div>
+                    </div>                    
+                  </div>
               </div>
-              
+
             </fieldset> 
           </div>
         </div>

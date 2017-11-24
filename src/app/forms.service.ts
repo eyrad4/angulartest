@@ -13,4 +13,9 @@ export class FormsService{
         const data = form;        
         return this.http.post('http://localhost:3000/forms', data);
     }
+
+    deleteForms(form: any){
+        
+        return this.http.delete(`http://localhost:3000/forms/${form.id}`, form);
+    }
 }

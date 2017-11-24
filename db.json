@@ -16,33 +16,19 @@
       ]
     },
     {
-      "id": 2,
       "formid": "",
-      "form_name": "ttt",
-      "form_description": "tttt",
+      "form_name": "new form 2",
+      "form_description": "descr",
       "FormData": [
         {
-          "label": "Label input",
-          "type": "textbox",
-          "description": "descr input",
-          "required": true,
-          "elementData": []
-        },
-        {
-          "label": "Label input 2",
-          "type": "textbox",
-          "description": "descr input 2",
+          "label": "text label",
+          "type": "textarea",
+          "description": "descr",
           "required": true,
           "elementData": []
         }
-      ]
-    },
-    {
-      "formid": "",
-      "form_name": "test",
-      "form_description": "test descr",
-      "FormData": [],
-      "id": 3
+      ],
+      "id": 5
     }
   ]
 }

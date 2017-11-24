@@ -23,4 +23,14 @@ export class FormListsComponent implements OnInit {
     });
   }
 
+  deleteForm(form){
+    this.formsService
+    .deleteForms(form) 
+    .subscribe((response: Response) => {
+      this.forms = this.forms.filter(f => f.id !== form.id);     
+      const data = response.json();
+      console.log(data);   
+    });  
+  }
+
 }

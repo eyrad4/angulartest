@@ -44,4 +44,8 @@ export class BuildFormComponent implements OnInit {
     FormDataArray.removeAt(index)
   }
 
+  showEdit(){
+    
+  }
+
 }

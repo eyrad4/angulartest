@@ -35,7 +35,22 @@
           <div *ngFor="let mainElement of invoiceForm.controls.FormData.controls; let i = index" [formGroupName]="i" >
             <app-render-form [elementItem]="mainElement.value"></app-render-form>
             <fieldset>
-              <button class="button-delete pure-button" (click)="deleteEelement(invoiceForm.controls.FormData, i)">Remove</button>    
+              <button class="button-delete pure-button" (click)="deleteEelement(invoiceForm.controls.FormData, i)">Remove</button>
+              <button class="button-edit pure-button" (click)="showEdit[i] = !showEdit[i]">{{showEdit[i] ? 'Hide' : 'Edit'}}</button>  
+              
+              <div *ngIf="showEdit[i]">  
+                  
+                <label>Label name </label>
+                <input formControlName="label" class="pure-input-1" />
+              
+                <label>Description</label>
+                <input formControlName="description" class="pure-input-1" />
+
+                <label for="required" class="pure-checkbox">
+                  <input type="checkbox" formControlName="required" id=""> Required
+                </label>
+              </div>
+              
             </fieldset> 
           </div>
         </div>

@@ -1,26 +1,27 @@
-<div [ngSwitch]="elementItem.type" class="pure-form">
+<div [ngSwitch]="elementItem.type" class="pure-form render-form-element">
     
   <fieldset class="pure-group"  *ngSwitchCase="'textbox'" >
     <label for="">{{elementItem.label}}</label>
-    <input type="text" class="pure-input-1-2" placeholder="{{elementItem.placeholder}}" name="" value="" />    
+    <input type="text" class="pure-input-1" placeholder="{{elementItem.placeholder}}" name="" value="" /> 
+    <small><i>{{elementItem.description}}</i></small>   
   </fieldset>
   
   <fieldset class="pure-group"  *ngSwitchCase="'select'"  >
      
     <label for="">{{elementItem.label}}</label>
-    <select [id]="elementItem.name" name="" class="pure-input-1-2">
+    <select [id]="elementItem.name" name="" class="pure-input-1">
       <option *ngFor="let opt of elementItem.elementData" [value]="opt.sub_value">{{opt.sub_name}}</option>
     </select>
   </fieldset>
 
   <fieldset class="pure-group"  *ngSwitchCase="'file'" >
       <label for="">{{elementItem.label}}</label>
-      <input type="file" class="pure-input-1-2" placeholder="{{elementItem.placeholder}}" name="" value="" />
+      <input type="file" class="pure-input-1" placeholder="{{elementItem.placeholder}}" name="" value="" />
   </fieldset>
 
   <fieldset class="pure-group"  *ngSwitchCase="'textarea'" >
       <label for="">{{elementItem.label}}</label>
-      <textarea name="" id="" cols="30" rows="10" placeholder="{{elementItem.placeholder}}"></textarea>      
+      <textarea class="pure-input-1" name="" id="" cols="30" rows="10" placeholder="{{elementItem.placeholder}}"></textarea>      
   </fieldset>
 
   <fieldset class="pure-group"  *ngSwitchCase="'checkbox'" >

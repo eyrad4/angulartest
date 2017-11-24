@@ -1,0 +1,55 @@
+<button (click)="addElement('textbox')">input</button>
+<button (click)="addElement('textarea')">textarea</button>
+<button (click)="addElement('select')">select</button>
+<button (click)="addElement('radio')">radio</button>
+<button (click)="addElement('checkbox')">checkbox</button>
+<button (click)="addElement('file')">file</button>
+
+<form [formGroup]="invoiceForm">
+<label>Form name: </label>
+<input formControlName="formid"/>
+<br />
+<textarea formControlName="form_Description" id="" cols="30" rows="10"></textarea>
+<hr>
+<div formArrayName="FormData" [sortablejs]="invoiceForm.controls.FormData">
+    
+  <div *ngFor="let mainElement of invoiceForm.controls.FormData.controls; let i = index" [formGroupName]="i" >
+    <app-render-form [elementItem]="mainElement.value"></app-render-form>
+
+    <fieldset>
+      <button (click)="deleteEelement(invoiceForm.controls.FormData, i)">Remove</button>        
+      <button (click)="showEdit[i] = !showEdit[i]">{{showEdit[i] ? 'Hide' : 'Edit'}}</button>   
+      
+      <div *ngIf="showEdit[i]">  
+        
+        <label>LAbel </label>
+        <input formControlName="label" />
+    
+        <label>Description</label>
+        <input formControlName="description" />
+        <input type="checkbox" formControlName="required" id="">
+        
+        <div *ngIf="mainElement.value.type == 'select' || mainElement.value.type == 'radio' || mainElement.value.type == 'checkbox'">  
+          <button (click)="addSubElement(mainElement.controls.elementData)">Add Sub Element</button>
+        
+          <div formArrayName="elementData">
+              <div *ngFor="let subelement of mainElement.controls.elementData.controls; let j = index" [formGroupName]="j">
+                <fieldset>
+                  <label>Value</label>
+                  <input formControlName="sub_value">
+                  <label>Name</label>
+                  <input formControlName="sub_name">
+                  <button (click)="deleteSubEelement(mainElement, j)">Remove</button>
+                </fieldset>
+              </div>
+          </div>
+          
+        </div>
+      </div>
+    </fieldset>    
+  </div>
+</div>
+</form>
+<br>
+
+<pre>{{invoiceForm.value | json }}</pre>

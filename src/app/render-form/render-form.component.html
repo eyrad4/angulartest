@@ -1,4 +1,4 @@
-<div [ngSwitch]="elementItem.name" class="pure-form">
+<div [ngSwitch]="elementItem.type" class="pure-form">
     
   <fieldset class="pure-group"  *ngSwitchCase="'textbox'" >
     <label for="">{{elementItem.label}}</label>
@@ -6,9 +6,10 @@
   </fieldset>
   
   <fieldset class="pure-group"  *ngSwitchCase="'select'"  >
+     
     <label for="">{{elementItem.label}}</label>
     <select [id]="elementItem.name" name="" class="pure-input-1-2">
-      <option *ngFor="let opt of elementItem.options" [value]="opt.value">{{opt.value}}</option>
+      <option *ngFor="let opt of elementItem.elementData" [value]="opt.sub_value">{{opt.sub_name}}</option>
     </select>
   </fieldset>
 
@@ -24,15 +25,15 @@
 
   <fieldset class="pure-group"  *ngSwitchCase="'checkbox'" >
       <label for="">{{elementItem.label}}</label>
-      <span *ngFor="let input of elementItem.inputs">
-          <input type="checkbox" name="" [value]="input.value"> {{input.name}}
+      <span *ngFor="let input of elementItem.elementData">
+          <input type="checkbox" name="" [value]="input.sub_value"> {{input.sub_name}}
       </span>        
   </fieldset>
 
   <fieldset class="pure-group"  *ngSwitchCase="'radio'" >
       <label for="">{{elementItem.label}}</label>
-      <span *ngFor="let input of elementItem.inputs">
-          <input type="radio" name="" [value]="input.value"> {{input.name}}
+      <span *ngFor="let input of elementItem.elementData">
+          <input type="radio" name="" [value]="input.sub_value"> {{input.sub_name}}
       </span>        
   </fieldset>
 

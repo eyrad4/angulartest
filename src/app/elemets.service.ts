@@ -24,7 +24,7 @@ export class ElemetsService {
           index: 2,
           label: 'Label text',    
           required: false,
-          inputs: [
+          options: [
             {value: 'value 1', name: 'name 1'},
             {value: 'value 2', name: 'name 2'},
             {value: 'value 3', name: 'name 3'}      
@@ -35,7 +35,7 @@ export class ElemetsService {
           index: 3,
           label: 'Label text',    
           required: false,
-          inputs: [
+          options: [
             {value: 'value 1', name: 'name 1'},
             {value: 'value 2', name: 'name 2'},
             {value: 'value 3', name: 'name 3'}         

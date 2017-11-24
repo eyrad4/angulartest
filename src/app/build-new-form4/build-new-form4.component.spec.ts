@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BuildNewForm2Component } from './build-new-form2.component';
+import { BuildNewForm4Component } from './build-new-form4.component';
 
-describe('BuildNewForm2Component', () => {
-  let component: BuildNewForm2Component;
-  let fixture: ComponentFixture<BuildNewForm2Component>;
+describe('BuildNewForm4Component', () => {
+  let component: BuildNewForm4Component;
+  let fixture: ComponentFixture<BuildNewForm4Component>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BuildNewForm2Component ]
+      declarations: [ BuildNewForm4Component ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BuildNewForm2Component);
+    fixture = TestBed.createComponent(BuildNewForm4Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

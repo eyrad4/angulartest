@@ -7,11 +7,12 @@ import { SortablejsModule } from 'angular-sortablejs';
 
 
 import { FormListsComponent } from './form-lists/form-lists.component';
+import { BuildFormComponent } from './build-form/build-form.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
 import { renderFormElementPipe } from './render-form-element.pipe';
-import { BuildNewForm2Component } from './build-new-form2/build-new-form2.component';
 import { RenderFormComponent } from './render-form/render-form.component';
-import { BuildFormComponent } from './build-form/build-form.component';
+import { RenderEditElementFormComponent } from './render-edit-element-form/render-edit-element-form.component';
+
 
 
 
@@ -21,14 +22,15 @@ import { BuildFormComponent } from './build-form/build-form.component';
     AppComponent,
     FormListsComponent,   
     EditFormComponent,
-    renderFormElementPipe,
-    BuildNewForm2Component,
+    renderFormElementPipe,    
     RenderFormComponent,
-    BuildFormComponent 
+    BuildFormComponent,
+    RenderEditElementFormComponent   
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,    
     SortablejsModule
   ],

@@ -1,0 +1,27 @@
+.build-form-block{
+    padding:50px 30px;
+}
+.button-success,
+.button-return {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+.button-success {
+    background: rgb(28, 184, 65);   
+}
+.button-return {
+    background: rgb(66, 184, 221);
+}
+.add-form-elements{
+    padding-right: 30px;
+}
+.add-form-elements .fom-elements-block button{
+    display: block;
+    margin-bottom: 5px; 
+    width: 100%;
+}
+.builder-from-block label{
+    margin-bottom:5px;
+    display: block;
+}

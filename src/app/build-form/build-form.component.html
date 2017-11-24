@@ -1,3 +1,46 @@
-<p>
-  build-form works!
-</p>
+<div class="build-form-block">
+
+<div class="pure-g">
+  <div class="pure-u-1">
+    <a href="/" class="pure-button button-return"> &larr; Return</a>
+  </div>
+
+    <div class="pure-u-1-8 pure-u-md-1-6 add-form-elements">
+      <h2>Form elements</h2>
+      <div class="fom-elements-block">
+          <button class="pure-button" (click)="addElement('textbox')">input</button>
+          <button class="pure-button" (click)="addElement('textarea')">textarea</button>
+          <button class="pure-button" (click)="addElement('select')">select</button>
+          <button class="pure-button" (click)="addElement('radio')">radio</button>
+          <button class="pure-button" (click)="addElement('checkbox')">checkbox</button>
+          <button class="pure-button" (click)="addElement('file')">file</button>
+      </div>
+    
+    </div>
+
+    <div class="pure-u-5-6 pure-u-md-5-6 builder-from-block">
+      <h2>Form builder</h2>
+      <form [formGroup]="invoiceForm"  class="pure-form">
+          <fieldset class="pure-group">
+              <label>Form name </label>
+              <input formControlName="form_name" class="pure-input-1" />              
+          </fieldset>
+
+          <fieldset class="pure-group">
+              <label>Form description </label>
+              <textarea formControlName="form_description" class="pure-input-1" id="" rows="5"></textarea>            
+          </fieldset>
+          
+         
+          <button class="button-success pure-button" >Save form</button>
+      </form>
+    
+    </div>
+    
+</div>
+
+  <hr>
+  <h3>JSON preview</h3>
+  <pre>{{invoiceForm.value | json }}</pre>
+
+</div>

@@ -17,17 +17,15 @@
     },
     {
       "formid": "",
-      "form_name": "new form 2",
-      "form_description": "descr",
-      "FormData": [
-        {
-          "label": "text label",
-          "type": "textarea",
-          "description": "descr",
-          "required": true,
-          "elementData": []
-        }
-      ],
+      "form_name": "new form 222",
+      "form_description": "descr 1234",
+      "FormData": {
+        "label": "text label",
+        "type": "textarea",
+        "description": "descr",
+        "required": true,
+        "elementData": []
+      },
       "id": 5
     }
   ]

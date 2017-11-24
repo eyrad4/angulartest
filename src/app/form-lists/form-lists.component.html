@@ -8,17 +8,13 @@
       <h1>Forms List</h1>
       <div class="pure-u-md-1-1 one-form" *ngFor="let form of forms; let i=index">
         <div class="pure-u-1-2 pure-u-md-1-2">
-            <h3>{{form.form_name}}</h3>
+            <h3><a [routerLink]="['/newform', form.id]">{{form.form_name}}</a></h3>
             <small><i><p>{{form.form_description}}</p></i></small>
         </div>
         <div class="pure-u-11-24 pure-u-md-11-24 form-buttons">
-            <button class="pure-button button-preview">Preview</button>
-            <button class="pure-button button-edit">Edit</button>
+            <button class="pure-button button-preview">Preview</button>          
             <button (click)="deleteForm(form)" class="pure-button button-delete">Delete</button>
-        </div>
-      
-
-      
+        </div>   
      </div>
     </div>
   </div>  

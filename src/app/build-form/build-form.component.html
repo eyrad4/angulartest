@@ -2,7 +2,7 @@
 
 <div class="pure-g">
   <div class="pure-u-1">
-    <a href="/" class="pure-button button-return"> &larr; Return</a>
+    <a routerLink="" class="pure-button button-return"> &larr; Return</a>
   </div>
 
     <div class="pure-u-1-8 pure-u-md-1-6 add-form-elements">
@@ -69,8 +69,15 @@
             </fieldset> 
           </div>
         </div>
-
-        <button (click)="saveForm()" class="button-success pure-button" >Save form</button>
+        
+        <div *ngIf="editForm; then thenBlock; else elseBlock"></div>
+        <ng-template #thenBlock>
+          <button (click)="editSaveForm(invoiceForm.value)" class="button-success pure-button" >Save edit form</button>  
+        </ng-template>   
+        <ng-template #elseBlock>
+          <button (click)="saveForm()" class="button-success pure-button" >Save form</button>  
+        </ng-template>       
+        
         
       </form>
     

@@ -5,6 +5,8 @@ import { Response } from '@angular/http';
 import { SortablejsOptions } from 'angular-sortablejs';
 import { FormsService } from '../forms.service';
 
+import { ActivatedRoute, Params } from '@angular/router';
+
 @Component({
   selector: 'app-build-form',
   templateUrl: './build-form.component.html',
@@ -13,8 +15,9 @@ import { FormsService } from '../forms.service';
 export class BuildFormComponent implements OnInit {
 
   invoiceForm: FormGroup;
+  editForm: boolean = false;
 
-  constructor(private _formBuild: FormBuilder, private formsService: FormsService) {  }
+  constructor(private _formBuild: FormBuilder, private formsService: FormsService, private route: ActivatedRoute) {  }
   
   ngOnInit() {
     this.invoiceForm = this._formBuild.group({
@@ -23,6 +26,18 @@ export class BuildFormComponent implements OnInit {
       form_description: [''],
       FormData: this._formBuild.array([])
     });
+
+    let formid = this.route.snapshot.params['id'];
+    if(formid){
+      this.editForm = true;
+      let query = this.formsService.editForm(formid);     
+      query.subscribe((response: Response) => {         
+        const data = response.json();        
+        console.log(data); 
+        this.invoiceForm = this._formBuild.group(data);  
+      });  
+     }
+
   }
 
   addRows(elementName) {
@@ -69,6 +84,14 @@ export class BuildFormComponent implements OnInit {
     const data = response.json();
     console.log(data);   
   });   
+  }
+
+  editSaveForm(form){
+    this.formsService.editSaveForm(form)
+    .subscribe((response: Response) => {      
+      const data = response.json();
+      console.log(data);   
+    });   ;
   }
 
 }

@@ -11,7 +11,8 @@ import { EditFormComponent } from './edit-form/edit-form.component';
 
 const appRoutes: Routes = [
   {path: '', component: FormListsComponent},
-  {path: 'newform', component: BuildFormComponent},  
+  {path: 'newform', component: BuildFormComponent},
+  {path: 'newform/:id', component: BuildFormComponent},    
   {path: 'editform', component: EditFormComponent}
 ];
 

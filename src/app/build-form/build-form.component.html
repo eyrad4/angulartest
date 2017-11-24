@@ -22,14 +22,25 @@
       <h2>Form builder</h2>
       <form [formGroup]="invoiceForm"  class="pure-form">
           <fieldset class="pure-group">
-              <label>Form name </label>
-              <input formControlName="form_name" class="pure-input-1" />              
+            <label>Form name </label>
+            <input formControlName="form_name" class="pure-input-1" />              
           </fieldset>
 
           <fieldset class="pure-group">
-              <label>Form description </label>
-              <textarea formControlName="form_description" class="pure-input-1" id="" rows="5"></textarea>            
+            <label>Form description </label>
+            <textarea formControlName="form_description" class="pure-input-1" id="" rows="5"></textarea>            
           </fieldset>
+
+        <div formArrayName="FormData" [sortablejs]="invoiceForm.controls.FormData">
+          <div *ngFor="let mainElement of invoiceForm.controls.FormData.controls; let i = index" [formGroupName]="i" >
+            <app-render-form [elementItem]="mainElement.value"></app-render-form>
+            <fieldset>
+                  
+            </fieldset> 
+          </div>
+        </div>
+
+        
           
          
           <button class="button-success pure-button" >Save form</button>

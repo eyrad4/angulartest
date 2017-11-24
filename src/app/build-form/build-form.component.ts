@@ -23,4 +23,20 @@ export class BuildFormComponent implements OnInit {
     });
   }
 
+  addRows(elementName) {
+    let group = this._formBuild.group({
+      label: [''],
+      type: elementName,
+      description: [''],
+      required: [''],
+      elementData: this._formBuild.array([])
+    });   
+    return group;
+  } 
+
+  addElement(elementName){
+    const control: FormArray = this.invoiceForm.get(`FormData`) as FormArray;
+    control.push(this.addRows(elementName));
+  }
+
 }

@@ -35,7 +35,7 @@
           <div *ngFor="let mainElement of invoiceForm.controls.FormData.controls; let i = index" [formGroupName]="i" >
             <app-render-form [elementItem]="mainElement.value"></app-render-form>
             <fieldset>
-                  
+              <button class="button-delete pure-button" (click)="deleteEelement(invoiceForm.controls.FormData, i)">Remove</button>    
             </fieldset> 
           </div>
         </div>

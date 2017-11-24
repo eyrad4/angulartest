@@ -39,4 +39,9 @@ export class BuildFormComponent implements OnInit {
     control.push(this.addRows(elementName));
   }
 
+  deleteEelement(FormDataArray,index){
+    console.log(FormDataArray);
+    FormDataArray.removeAt(index)
+  }
+
 }

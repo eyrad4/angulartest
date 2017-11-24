@@ -2,7 +2,8 @@
     padding:50px 30px;
 }
 .button-success,
-.button-return {
+.button-return,
+.button-delete {
     color: white;
     border-radius: 4px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
@@ -12,6 +13,9 @@
 }
 .button-return {
     background: rgb(66, 184, 221);
+}
+.button-delete {
+    background: rgb(202, 60, 60);
 }
 .add-form-elements{
     padding-right: 30px;

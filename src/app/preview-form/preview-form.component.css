@@ -39,8 +39,15 @@
     margin-bottom:5px;
     display: block;
 }
-
-.pure-group small{
+.pure-form .pure-group .checkbox-block, 
+.pure-form .pure-group .radio-block{
+    margin-bottom:10px;
+}
+.pure-form .pure-group .checkbox-block input, 
+.pure-form .pure-group .radio-block input{
+    display:inline;
+}
+small{
     display:block;
     padding: 10px 0px;
 }

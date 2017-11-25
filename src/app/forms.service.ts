@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Http } from "@angular/http";
+import { Http, Response } from "@angular/http";
 
 @Injectable()
 export class FormsService{
@@ -11,6 +11,13 @@ export class FormsService{
 
     editForm(formid: any){
         return this.http.get(`http://localhost:3000/forms/${formid}`);   
+    }
+
+    previewForm(formid: any){
+        return this.http.get(`http://localhost:3000/forms/${formid}`)
+        .map((response: Response) => {
+            return response.json();
+        });           
     }
 
     saveForm(form){

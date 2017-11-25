@@ -42,7 +42,7 @@ export class BuildFormComponent implements OnInit {
           FormData: this.addRowsEdit(data.FormData)
         });  
       });
-      console.log(this.invoiceForm.value);
+     console.log(this.invoiceForm.value);
      }
 
   }

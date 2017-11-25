@@ -14,6 +14,7 @@ import { renderFormElementPipe } from './render-form-element.pipe';
 import { RenderFormComponent } from './render-form/render-form.component';
 import { RenderEditElementFormComponent } from './render-edit-element-form/render-edit-element-form.component';
 import { FormsService } from './forms.service';
+import { PreviewFormComponent } from './preview-form/preview-form.component';
 
 
 
@@ -27,7 +28,8 @@ import { FormsService } from './forms.service';
     renderFormElementPipe,    
     RenderFormComponent,
     BuildFormComponent,
-    RenderEditElementFormComponent   
+    RenderEditElementFormComponent,
+    PreviewFormComponent   
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,96 @@
+<div class="build-form-block">
+    
+    <div class="pure-g">
+      <div class="pure-u-1">
+        <a routerLink="" class="pure-button button-return"> &larr; Return</a>
+      </div>
+    
+        
+    
+        <div class="pure-u-5-6 pure-u-md-5-6 builder-from-block">
+          <h2>Form builder</h2>
+          <form (ngSubmit)="submitForm(form)" class="pure-form" #form="ngForm">
+              <h3>{{invoiceForm.value.form_name}}</h3>
+              <p>{{invoiceForm.value.form_description}}</p>
+    
+            <div >
+              <div >
+              <div *ngFor="let mainElement of invoiceForm.controls.FormData.controls; let i = index" >
+                
+                  <div [ngSwitch]="mainElement.value.type" class="pure-form render-form-element">
+                      
+                    <fieldset class="pure-group"  *ngSwitchCase="'textbox'" >
+                      <label for="">{{mainElement.value.label}}</label>
+                      <input type="text" class="pure-input-1" placeholder="" ngModel name="{{mainElement.value.type}}_{{i}}" [required]="mainElement.value.required ? 'required' : null" value="" 
+                       /> 
+                      <small><i>{{mainElement.value.description}}</i></small>   
+                    </fieldset>
+                    
+                    <fieldset class="pure-group"  *ngSwitchCase="'select'"  >
+                       
+                      <label for="">{{mainElement.value.label}}</label>
+                      <select [id]="elementItem.name" name="{{mainElement.value.type}}_{{i}}" ngModel class="pure-input-1" [required]="mainElement.value.required ? 'required' : null">
+                        <option *ngFor="let opt of mainElement.value.elementData" [value]="opt.sub_value">{{opt.sub_name}}</option>
+                      </select>
+                      <small><i>{{mainElement.value.description}}</i></small>   
+                    </fieldset>
+                  
+                    <fieldset class="pure-group"  *ngSwitchCase="'file'" >
+                        <label for="">{{mainElement.value.label}}</label>
+                        <input type="file" class="pure-input-1" placeholder="" ngModel name="{{mainElement.value.type}}_{{i}}" value="" [required]="mainElement.value.required ? 'required' : null" />
+                        <small><i>{{mainElement.value.description}}</i></small>   
+                    </fieldset>
+                  
+                    <fieldset class="pure-group"  *ngSwitchCase="'textarea'" >
+                        <label for="">{{mainElement.value.label}}</label>
+                        <textarea class="pure-input-1" ngModel name="{{mainElement.value.type}}_{{i}}" id="" cols="30" rows="10" [required]="mainElement.value.required ? 'required' : null"></textarea>  
+                        <small><i>{{mainElement.value.description}}</i></small>       
+                    </fieldset>
+                  
+                    <fieldset class="pure-group"  *ngSwitchCase="'checkbox'" >
+                        <label for="">{{mainElement.value.label}}</label>
+                        <span *ngFor="let input of mainElement.value.elementData; let che = index" class="checkbox-block">
+                            <input type="checkbox" ngModel name="{{mainElement.value.type}}_{{i}}_{{che}}" [value]="input.sub_value" [required]="mainElement.value.required ? 'required' : null"> {{input.sub_name}}
+                        </span>  
+                        <small><i>{{mainElement.value.description}}</i></small>         
+                    </fieldset>
+                  
+                    <fieldset class="pure-group"  *ngSwitchCase="'radio'" >
+                        <label for="">{{mainElement.value.label}}</label>
+                        <span *ngFor="let input of mainElement.value.elementData"  class="radio-block">
+                            <input type="radio" ngModel name="{{mainElement.value.type}}_{{i}}" [value]="input.sub_value" [required]="mainElement.value.required ? 'required' : null"> {{input.sub_name}}
+                        </span> 
+                        <small><i>{{mainElement.value.description}}</i></small>          
+                    </fieldset>
+                  
+                  </div> 
+  
+              </div>
+
+            </div>
+            
+            </div>
+            
+            <button 
+            type="submit" 
+            class="button-success pure-button" 
+            [disabled]="!form.valid"
+            >Send</button>    
+            
+            
+          </form>
+        
+        </div>
+        
+    </div>
+    <hr>
+    <h3>Submit preview</h3>
+    <pre>{{submitResult | json }}</pre>
+    
+
+      <hr>
+      <h3>JSON preview</h3>
+      <pre>{{invoiceForm.value | json }}</pre>
+    
+    </div>
+    

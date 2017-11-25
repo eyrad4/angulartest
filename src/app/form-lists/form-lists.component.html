@@ -12,7 +12,7 @@
             <small><i><p>{{form.form_description}}</p></i></small>
         </div>
         <div class="pure-u-11-24 pure-u-md-11-24 form-buttons">
-            <button class="pure-button button-preview">Preview</button>          
+            <button [routerLink]="['/preview', form.id]" class="pure-button button-preview">Preview</button>          
             <button (click)="deleteForm(form)" class="pure-button button-delete">Delete</button>
         </div>   
      </div>

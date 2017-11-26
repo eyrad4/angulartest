@@ -42,6 +42,7 @@
 .pure-form .pure-group .checkbox-block, 
 .pure-form .pure-group .radio-block{
     margin-bottom:10px;
+    display:block;
 }
 .pure-form .pure-group .checkbox-block input, 
 .pure-form .pure-group .radio-block input{

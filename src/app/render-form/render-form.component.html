@@ -1,12 +1,12 @@
 <div [ngSwitch]="elementItem.type" class="pure-form render-form-element">
     
-  <fieldset class="pure-group"  *ngSwitchCase="'textbox'" >
+  <fieldset class="pure-group textbox-block"  *ngSwitchCase="'textbox'" >
     <label for="">{{elementItem.label}}</label>
     <input type="text" class="pure-input-1" placeholder="{{elementItem.placeholder}}" name="" value="" /> 
     <small><i>{{elementItem.description}}</i></small>   
   </fieldset>
   
-  <fieldset class="pure-group"  *ngSwitchCase="'select'"  >
+  <fieldset class="pure-group select-block"  *ngSwitchCase="'select'"  >
      
     <label for="">{{elementItem.label}}</label>
     <select [id]="elementItem.name" name="" class="pure-input-1">
@@ -15,29 +15,29 @@
     <small><i>{{elementItem.description}}</i></small>   
   </fieldset>
 
-  <fieldset class="pure-group"  *ngSwitchCase="'file'" >
+  <fieldset class="pure-group file-block"  *ngSwitchCase="'file'" >
       <label for="">{{elementItem.label}}</label>
       <input type="file" class="pure-input-1" placeholder="{{elementItem.placeholder}}" name="" value="" />
       <small><i>{{elementItem.description}}</i></small>   
   </fieldset>
 
-  <fieldset class="pure-group"  *ngSwitchCase="'textarea'" >
+  <fieldset class="pure-group texarea-block"  *ngSwitchCase="'textarea'" >
       <label for="">{{elementItem.label}}</label>
       <textarea class="pure-input-1" name="" id="" cols="30" rows="10" placeholder="{{elementItem.placeholder}}"></textarea>  
       <small><i>{{elementItem.description}}</i></small>       
   </fieldset>
 
-  <fieldset class="pure-group"  *ngSwitchCase="'checkbox'" >
+  <fieldset class="pure-group checkbox-block"  *ngSwitchCase="'checkbox'" >
       <label for="">{{elementItem.label}}</label>
-      <span *ngFor="let input of elementItem.elementData">
+      <span *ngFor="let input of elementItem.elementData" class="checkbox-block">
           <input type="checkbox" name="" [value]="input.sub_value"> {{input.sub_name}}
       </span>  
       <small><i>{{elementItem.description}}</i></small>         
   </fieldset>
 
-  <fieldset class="pure-group"  *ngSwitchCase="'radio'" >
+  <fieldset class="pure-group radio-block"  *ngSwitchCase="'radio'" >
       <label for="">{{elementItem.label}}</label>
-      <span *ngFor="let input of elementItem.elementData">
+      <span *ngFor="let input of elementItem.elementData" class="radio-block">
           <input type="radio" name="" [value]="input.sub_value"> {{input.sub_name}}
       </span> 
       <small><i>{{elementItem.description}}</i></small>          

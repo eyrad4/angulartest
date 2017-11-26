@@ -2,3 +2,16 @@
     margin-bottom:5px;
     display: block;
 }
+
+.render-form-element .pure-group .checkbox-block, 
+.render-form-element .pure-group .radio-block{
+    margin-bottom:10px;
+}
+.render-form-element .pure-group .checkbox-block input, 
+.render-form-element .pure-group .radio-block input{
+    display:inline;
+}
+small{
+    display:block;
+    padding: 10px 0px;
+}

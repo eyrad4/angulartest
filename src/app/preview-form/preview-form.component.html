@@ -7,12 +7,12 @@
     
         
     
-        <div class="pure-u-5-6 pure-u-md-5-6 builder-from-block">
-          <h2>Form builder</h2>
+        <div class="pure-u-1-2 pure-u-md-1-2 builder-from-block">
+          <h2>Form preview</h2>
           <form (ngSubmit)="submitForm(form)" class="pure-form" #form="ngForm">
-              <h3>{{invoiceForm.value.form_name}}</h3>
-              <p>{{invoiceForm.value.form_description}}</p>
-    
+              <h3>Name form:{{invoiceForm.value.form_name}}</h3>
+              <p>Description: {{invoiceForm.value.form_description}}</p>
+              <hr />
             <div >
               <div >
               <div *ngFor="let mainElement of invoiceForm.controls.FormData.controls; let i = index" >
